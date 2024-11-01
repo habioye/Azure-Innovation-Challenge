@@ -1,12 +1,12 @@
-import azurelogo from "./assets/chatbot.png";
+import azurelogo from "../../assets/chatbot.png";
 // import {ReactSVG} from "react-svg";
-import stats from "./assets/svg/stat.svg";
-import stat from "./assets/stat.png";
+import stats from "../../assets/svg/stat.svg";
+import stat from "../../assets/stat.png";
 import "./App.css";
 import { useState } from "react";
 // import addbotton from './assets/add.png';
 
-function main() {
+function App() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([
     {
@@ -31,12 +31,42 @@ function main() {
       },
     ]);
   };
+  // let url = "https://api.github.com/users/mralexgray/repos";
+  // let request = new XMLHttpRequest();
+  // request.open('GET',url);
+  // request.onload = function() {
+  //   if (request.status === 200) {
+  //     SVGMetadataElement(JSON.parse(request.responseText));
+  //     console.log("There is an issue");
+  //   } else {
+  //     console.log("works");
+  //   }
+  // }
+  function handleClick() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.example.com/data');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        // setData(JSON.parse(xhr.responseText));
+      }
+    };
+    xhr.send();
+  }
+
+  // request.send();
+  // console.log()
+
+
 
   return (
     <div className="App">
       {/* <div>
         <stat />
       </div> */}
+       <div>
+      <button onClick={handleClick}>Get Data</button>
+      {/* {data ? <div>{JSON.stringify(data)}</div> : <div>Loading...</div>} */}
+    </div>
 
       <div className="sidebar">
         <div className="upperSide">
