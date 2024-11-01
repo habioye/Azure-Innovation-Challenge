@@ -3,7 +3,7 @@ import azurelogo from "../../assets/chatbot.png";
 import stats from "../../assets/svg/stat.svg";
 import stat from "../../assets/stat.png";
 import "./App.css";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import addbotton from './assets/add.png';
 
 function App() {
@@ -44,17 +44,24 @@ function App() {
   // }
   function handleClick() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.example.com/data');
+    xhr.open('GET', 'https://api.github.com/users/mralexgray/repos');
     xhr.onload = function() {
       if (xhr.status === 200) {
         // setData(JSON.parse(xhr.responseText));
+        console.log("got one");
+        console.log(xhr.responseText,"the other");
+
+      } else {
+        console.log("got the other");
       }
     };
     xhr.send();
+    xhr.onload();
+    console.log("it happened");
+    console.log(xhr.responseText,"the other");
   }
 
-  // request.send();
-  // console.log()
+  handleClick();
 
 
 
