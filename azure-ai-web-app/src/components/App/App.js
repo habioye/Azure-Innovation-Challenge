@@ -1,10 +1,13 @@
 import azurelogo from "../../assets/chatbot.png";
+import chatbot from "../../assets/chatbot.png";
+import user from "../../assets/user.jpg";
 // import {ReactSVG} from "react-svg";
 import stats from "../../assets/svg/stat.svg";
 import stat from "../../assets/stat.png";
+
 import "./App.css";
 import React, { useState, useEffect } from "react";
-// import addbotton from './assets/add.png';
+import addbotton from './assets/add.png';
 
 function App() {
   const [input, setInput] = useState("");
@@ -107,17 +110,18 @@ function App() {
       <div className="main">
         <div className="chats">
           <div className="chat">
-            <img className="chatImg" src="" alt="" />{" "}
-            <p className="txt"> Lorem ipsum</p>
+            <img className="chatImg-aibot" src={chatbot} alt="" />{" "}
+            <p className="txt"> Hello I am Azure AI and I will give you useful information about the data source.</p>
           </div>
           <div className="chat">
-            <img className="chatImg" src="" alt="" />{" "}
-            <p className="txt"> Lorem ipsum</p>
+            <img className="chatImg-user" src={user} alt="" />{" "}
+            <p className="txt"> Hello azure ai what is the country with the highest temperature. </p>
           </div>
           {messages.map((message, i) => {
+            
             <div className="chat">
-              <img className="chatImg" src="" alt="" />{" "}
-              <p className="txt"> Lorem ipsum</p>
+              <img className="chatImg" src={message.isBot?chatbot:user} alt="" />{" "}
+              <p className="txt"> {message.text}</p>
             </div>;
           })}
         </div>
